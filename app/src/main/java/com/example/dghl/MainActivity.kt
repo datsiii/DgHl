@@ -56,14 +56,15 @@ fun MyApp() {
 }
 
 @HiltViewModel
-class Screen1ViewModel @Inject constructor() : ViewModel() {
-    @Inject
-    lateinit var wifiManager: WiFiManager
+class Screen1ViewModel @Inject constructor(var wifiManager: WiFiManager) : ViewModel() {
+    init {
+        Log.d("MyLog", "Screen1ViewModel created with wifiManager: $wifiManager")
+    }
 }
 
 @Composable
-fun Screen1(screen1ViewModel: Screen1ViewModel = hiltViewModel(), navController: NavController) {
-    Log.d("MyLog", "Screen1 Instance id: ${screen1ViewModel.wifiManager}")
+fun Screen1(screen1ViewModel: Screen1ViewModel, navController: NavController) {
+    //Log.d("MyLog", "Screen1 Instance id: ${screen1ViewModel.wifiManager}")
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -77,16 +78,16 @@ fun Screen1(screen1ViewModel: Screen1ViewModel = hiltViewModel(), navController:
 }
 
 @HiltViewModel
-class Screen2ViewModel @Inject constructor() : ViewModel() {
-    // Логика для управления состоянием
-    @Inject
-    lateinit var wifiManager: WiFiManager
+class Screen2ViewModel @Inject constructor(var wifiManager: WiFiManager) : ViewModel() {
+    init {
+        Log.d("MyLog", "Screen2ViewModel created with wifiManager: $wifiManager")
+    }
 }
 
 
 @Composable
-fun Screen2(screen2ViewModel: Screen2ViewModel = hiltViewModel(), navController: NavController) {
-    Log.d("MyLog", "Screen2 Instance id: ${screen2ViewModel.wifiManager}")
+fun Screen2(screen2ViewModel: Screen2ViewModel, navController: NavController) {
+    //Log.d("MyLog", "Screen2 Instance id: ${screen2ViewModel.wifiManager}")
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
