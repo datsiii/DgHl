@@ -1,8 +1,9 @@
 package com.example.dghl
 
 import android.util.Log
+import javax.inject.Inject
 
-class WiFiManager(private val settings: WiFiSettings) {
+class WiFiManager @Inject constructor(private val settings: WiFiSettings) {
     fun connect() {
         settings.openConnection()
     }
@@ -12,7 +13,12 @@ class WiFiManager(private val settings: WiFiSettings) {
     }
 }
 
-class WiFiSettings {
+//@Inject constructor нужен для того,
+//чтобы Hilt смог найти класс и создать его инстанцию (экземпляр)
+
+//Если помечено только @Inject constructor, то библиотека Hilt знает как создать экземпляр класса,
+//но каждый раз будет создавать новый экземпляр
+class WiFiSettings @Inject constructor() {
     fun openConnection() {
         Log.d("MyLog", "Connected")
     }
