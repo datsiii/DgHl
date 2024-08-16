@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DgHl"
         tools:targetApi="31" >
         <activity
-            android:name=".frags.Activity2"
+            android:name=".Activity2"
             android:exported="false"
             android:theme="@style/Theme.DgHl" />
         <activity

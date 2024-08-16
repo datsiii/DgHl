@@ -1,10 +1,12 @@
 package com.example.dghl
 
 import android.util.Log
+import dagger.hilt.android.scopes.ActivityRetainedScoped
+import dagger.hilt.android.scopes.ActivityScoped
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
+@ActivityRetainedScoped
 class WiFiManager @Inject constructor(private val settings: WiFiSettings) {
     fun connect() {
         settings.openConnection()

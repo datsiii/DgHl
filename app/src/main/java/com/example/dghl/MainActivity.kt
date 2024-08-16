@@ -1,5 +1,6 @@
 package com.example.dghl
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -40,6 +41,25 @@ class MainActivity : ComponentActivity() {
         //wifiManager.connect()
         //wifiManager.sendMessage()
         Log.d("MyLog", "MainActivity Instance id: $wifiManager")
+        startActivity(Intent(this, Activity2::class.java))
+    }
+}
+
+@AndroidEntryPoint
+class Activity2 : ComponentActivity() {
+    @Inject
+    lateinit var wifiManager: WiFiManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        /*enableEdgeToEdge()
+        setContent {
+            MyApp()
+        }
+        //инициализация не нужна
+        //wifiManager.connect()
+        //wifiManager.sendMessage()*/
+        Log.d("MyLog", "Activity2 Instance id: $wifiManager")
     }
 }
 
